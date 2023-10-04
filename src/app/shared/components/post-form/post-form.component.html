@@ -1,0 +1,27 @@
+<form [formGroup]="postForm" (ngSubmit)="onPostCreate()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea 
+      rows="4"
+      type="text" id="content"  
+      formControlName="content" class="form-control">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="userId">UserId</label>
+      <select formControlName="userId" id="userId" class="form-control">
+        <option value="">Select UserID</option>
+        <option [value]="val" *ngFor="let val of idArray">
+          {{ val }}
+        </option>
+       </select>
+    </div>
+    <div class="text-right">
+      <button class="btn btn-primary" 
+      type="submit">Add Post</button>
+    </div>
+  </form>
